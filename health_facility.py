@@ -13,13 +13,9 @@ import matplotlib.pyplot as plt
 
 #config
 spark = SparkSession.builder.master("yarn").appName("Peserta_Akses").getOrCreate()
+
 #load Data
 fktpDataFrame = spark.read.csv("/user/hive/warehouse/db_ml.db/kunjungan_fktp/" , header=False, sep="|")
-
-#columns = ['idpeserta','nofpk','nosjp','jnsklaimreg','nmproplayan','nmkrlayan','nmkclayan','nmdati2layan',
-# 'kdppklayan','tglpelayanan','klsrawat','jenisppklayan','typeppklayan','nmpropperujuk','nmkrperujuk','nmkcperujuk','nmdati2perujuk',
-# 'kdppkperujuk','typeppkperujuk','nmtkp','kddiagmasuk','nmdiagmasuk',
-# 'kddiagprimer','nmdiagprimer','kdinacbgs','nminacbgs','politujsjp','byversjp']
 
 columns = ["kdppkkunjungan", "nmppkkunjungan", "kdkrkunjungan", "nmkrkunjungan", "kdkckunjungan", "nmkckunjungan",
 "kdpropkunjungan", "nmpropkunjungan", "kddati2kunjungan", "nmdati2kunjungan", "nmjnsppkkunjungan", "kdpoli", "nmpoli", "kdtkp", "nmtkp", "tgl_kunjungan",
